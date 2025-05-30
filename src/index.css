@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+body {
+  background-color: var(--body-bg);
+}
+
+:root {
+  --body-bg: #fff5f0;
+  --navbar-bg: #ffffff;
+  --navbar-texts: #123123;
+  --navbar-mainn-button: #123123;
+  --app-titles: #123123;
+  --divs-bg: #123123;
+  --divs-text: #123123;
+  --divs-vote-1: #123123;
+  --divs-vote-2: #123123;
+}
