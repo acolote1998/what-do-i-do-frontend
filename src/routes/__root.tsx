@@ -4,7 +4,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-2 flex gap-2">
+      <div className="p-2 flex gap-2 text-amber-600">
         <Link to="/" className="[&.active]:font-bold">
           Home
         </Link>{" "}
