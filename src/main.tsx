@@ -5,6 +5,6 @@ import Providers from "../components/Providers";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Providers></Providers>
+    <Providers />
   </StrictMode>
 );
