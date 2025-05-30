@@ -2,6 +2,9 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "../src/routeTree.gen";
 import { ToastContainer } from "react-toastify";
 import { ClerkProvider } from "@clerk/clerk-react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -19,8 +22,10 @@ const Providers = () => {
   return (
     <>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-        <RouterProvider router={router} />
-        <ToastContainer />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ToastContainer />
+        </QueryClientProvider>
       </ClerkProvider>
     </>
   );
