@@ -1,17 +1,23 @@
 @import "tailwindcss";
 
-body {
+html,
+body,
+#root {
   background-color: var(--body-bg);
+  position: relative;
+  margin: 0;
+  height: 100%;
 }
 
 :root {
-  --body-bg: #fff5f0;
-  --navbar-bg: #ffffff;
-  --navbar-texts: #123123;
-  --navbar-mainn-button: #123123;
-  --app-titles: #123123;
-  --divs-bg: #123123;
-  --divs-text: #123123;
-  --divs-vote-1: #123123;
-  --divs-vote-2: #123123;
+  --body-bg: #fefaf6; /* Soft cream white – gentle on the eyes */
+  --navbar-bg: #ffffff; /* Clean white for contrast */
+  --navbar-texts: #3d3d3d; /* Neutral dark gray for readability */
+  --navbar-border: #ffe0b2; /* Warm sandy border */
+  --navbar-mainn-button: #ff7043; /* Soft coral – friendly and attention-catching */
+  --app-titles: #3d3d3d; /* Match navbar text */
+  --divs-bg: #fffdfc; /* Slight off-white */
+  --divs-text: #5c5c5c; /* Mid gray for soft readability */
+  --divs-vote-1: #81d4fa; /* Sky blue – clear and inviting */
+  --divs-vote-2: #ffb74d; /* Warm orange – vibrant but friendly */
 }
