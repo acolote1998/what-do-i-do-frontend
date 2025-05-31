@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/clerk-react";
 import axios, { HttpStatusCode } from "axios";
 import type { DecisionsType } from "../../types/types";
 
-const url = "YOUR_API_URL_HERE";
+const url = "/data/decisions.json";
 
 export function useFetchDecisions() {
   const { getToken } = useAuth();
