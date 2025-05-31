@@ -15,7 +15,9 @@ body,
   --navbar-bg: #bfd7e0; /* Muted steel blue */
   --navbar-texts: #2c3e50; /* Deep slate blue */
   --navbar-border: #95a5a6; /* Gray-blue */
-  --navbar-mainn-button: #3b5998; /* Classic deep blue */
+  --main-button: #3b82f6; /* Bright, friendly blue (Tailwind’s blue-500) */
+  --main-button-text: #ffffff; /* White for high contrast */
+  --main-button-border: #2563eb; /* Darker blue for border */
   --app-titles: #2c3e50; /* Same deep slate blue */
   --divs-bg: #f0f5f9; /* Very light gray-blue */
   --divs-border: #c3d6df; /* Pale blue-gray */
