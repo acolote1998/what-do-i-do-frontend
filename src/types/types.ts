@@ -10,3 +10,13 @@ export type ActionButtonType = {
   heightvh: string;
   title: string;
 };
+
+export type DecisionsType = {
+  title: string;
+  description: string;
+  option1: string;
+  option2: string;
+  users_votes_1: string[];
+  users_votes_2: string[];
+  open: boolean;
+};
