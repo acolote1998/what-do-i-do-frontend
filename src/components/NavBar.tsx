@@ -8,7 +8,7 @@ const NavBar = () => {
         borderTop: "1px solid var(--navbar-border)",
         backgroundColor: "var(--navbar-bg)",
       }}
-      className="h-[8.7vh] w-[100vw] fixed bottom-0 flex items-center justify-evenly text-center"
+      className="z-50 h-[8.7vh] w-[100vw] fixed bottom-0 flex items-center justify-evenly text-center"
     >
       <div className="cursor-pointer flex flex-col mt-1 items-center text-center opacity-100">
         <Home width="4.3vh" />
