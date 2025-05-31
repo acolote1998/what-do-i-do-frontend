@@ -1,5 +1,5 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { routeTree } from "../src/routeTree.gen";
+import { routeTree } from "../routeTree.gen";
 import { ToastContainer } from "react-toastify";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
