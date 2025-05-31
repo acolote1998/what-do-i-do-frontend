@@ -19,13 +19,6 @@ const ProfileDecision = ({
 
   return (
     <>
-      <p
-        onClick={() => {
-          console.log(users_votes_1, users_votes_2);
-        }}
-      >
-        TEST
-      </p>
       {open && (
         <>
           <h1 style={{ color: "var(--app-titles)" }} className="text-3xl"></h1>
