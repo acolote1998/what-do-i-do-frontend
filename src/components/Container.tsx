@@ -1,6 +1,11 @@
 import type { ContainerType } from "../types/types";
 
-const Container = ({ heightvh, widthvw, children }: ContainerType) => {
+const Container = ({
+  heightvh,
+  widthvw,
+  children,
+  position,
+}: ContainerType) => {
   return (
     <div
       style={{
@@ -9,6 +14,7 @@ const Container = ({ heightvh, widthvw, children }: ContainerType) => {
         backgroundColor: "var(--divs-bg)",
         width: `${widthvw}vw`,
         height: `${heightvh}vh`,
+        position: `${position}`,
       }}
       className="flex flex-col items-center justify-evenly rounded-lg"
     >
