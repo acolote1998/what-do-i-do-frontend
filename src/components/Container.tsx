@@ -10,7 +10,7 @@ const Container = ({ heightvh, widthvw, children }: ContainerType) => {
         width: `${widthvw}vw`,
         height: `${heightvh}vh`,
       }}
-      className="flex items-center justify-evenly rounded-lg"
+      className="flex flex-col items-center justify-evenly rounded-lg"
     >
       {children}
     </div>

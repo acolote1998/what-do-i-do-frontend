@@ -11,17 +11,21 @@ body,
 }
 
 :root {
-  --body-bg: #e6f0f3; /* Soft icy blue */
-  --navbar-bg: #bfd7e0; /* Muted steel blue */
-  --navbar-texts: #2c3e50; /* Deep slate blue */
-  --navbar-border: #95a5a6; /* Gray-blue */
-  --main-button: #3b82f6; /* Bright, friendly blue (Tailwind’s blue-500) */
-  --main-button-text: #ffffff; /* White for high contrast */
-  --main-button-border: #2563eb; /* Darker blue for border */
-  --app-titles: #2c3e50; /* Same deep slate blue */
-  --divs-bg: #f0f5f9; /* Very light gray-blue */
-  --divs-border: #c3d6df; /* Pale blue-gray */
-  --divs-text: #34495e; /* Soft navy */
-  --divs-vote-1: #6ba292; /* Muted teal */
-  --divs-vote-2: #d35400; /* Burnt orange */
+  --body-bg: #fff9f5; /* Crema muy claro, cálido y suave */
+  --navbar-bg: #f7c59f; /* Melocotón pastel, cálido y acogedor */
+  --navbar-texts: #5a3e36; /* Marrón chocolate, legible y cálido */
+  --navbar-border: #d9a77f; /* Beige oscuro para bordes */
+
+  --main-button: #c97c5d; /* Terracota suave, cálido y elegante */
+  --main-button-text: #fff9f5; /* Crema claro para contraste suave */
+  --main-button-border: #a05a3a; /* Marrón oscuro para borde */
+
+  --app-titles: #5a3e36; /* Igual que navbar-texts */
+
+  --divs-bg: #fff3e6; /* Crema pastel, muy suave */
+  --divs-border: #e5c9b3; /* Durazno claro para bordes */
+  --divs-text: #7e5a47; /* Marrón suave para textos */
+
+  --divs-vote-1: #e3a87c; /* Naranja quemado, cálido y amigable */
+  --divs-vote-2: #88bca3; /* Verde grisáceo, calmado y equilibrado */
 }
