@@ -1,6 +1,6 @@
-import Home from "./icons/Home";
-import New from "./icons/New";
-import Profile from "./icons/Profile";
+import Home from "../components/icons/Home";
+import New from "../components/icons/New";
+import Profile from "../components/icons/Profile";
 const NavBar = () => {
   return (
     <div
