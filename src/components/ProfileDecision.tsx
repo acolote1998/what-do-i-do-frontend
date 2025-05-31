@@ -7,7 +7,10 @@ const ProfileDecision = () => {
     <>
       <h1 style={{ color: "var(--app-titles)" }} className="text-3xl"></h1>
       <Container position="relative" heightvh="20" widthvw="80">
-        <h2 style={{ color: "var(--app-titles)" }} className="text-xl">
+        <h2
+          style={{ color: "var(--app-titles)" }}
+          className="cursor-pointer text-xl"
+        >
           Do I eat pizza tonight?
         </h2>
         <div className="flex">
@@ -32,7 +35,7 @@ const ProfileDecision = () => {
             <p className="ml-2">Option 2aaaaaaaa</p>
           </div>
         </div>
-        <div className="flex gap-2 absolute bottom-2 right-2">
+        <div className="cursor-pointer flex gap-2 absolute bottom-2 right-2">
           <View width={24}></View>
           <TrashCan width={24}></TrashCan>
         </div>
