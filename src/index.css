@@ -17,8 +17,11 @@ body,
   --navbar-border: #d9a77f; /* Beige oscuro para bordes */
 
   --main-button: #c97c5d; /* Terracota suave, cálido y elegante */
+  --main-button-hover: #e27e5d; /* Más brillante y vibrante */
   --main-button-text: #fff9f5; /* Crema claro para contraste suave */
+  --main-button-text-hover: #ffffff; /* Igual para texto, mantiene contraste */
   --main-button-border: #a05a3a; /* Marrón oscuro para borde */
+  --main-button-border-hover: #d4713b; /* Más claro y brillante para hover */
 
   --app-titles: #5a3e36; /* Igual que navbar-texts */
 
