@@ -14,7 +14,7 @@ const Container = ({
         backgroundColor: "var(--divs-bg)",
         width: `${widthvw}vw`,
         height: `${heightvh}vh`,
-        position: `${position}`,
+        position: position ?? "static",
       }}
       className="flex flex-col items-center justify-evenly rounded-lg"
     >
@@ -22,5 +22,4 @@ const Container = ({
     </div>
   );
 };
-
 export default Container;
