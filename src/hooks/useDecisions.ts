@@ -3,7 +3,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { useFetchDecisions } from "./util/useFetchDecisions";
 import type { DecisionsType } from "../types/types";
 
-const useDays = () => {
+const useDecisions = () => {
   const { fetchDecisions } = useFetchDecisions();
   const { isSignedIn } = useAuth();
 
@@ -16,4 +16,4 @@ const useDays = () => {
   return { isPending, isError, data, error };
 };
 
-export default useDays;
+export default useDecisions;
