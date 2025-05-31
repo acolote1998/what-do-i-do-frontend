@@ -1,6 +1,6 @@
-import type { ActionButton } from "../types/types";
+import type { ActionButtonType } from "../types/types";
 
-const ActionButton = ({ heightvh, widthvw, title }: ActionButton) => {
+const ActionButton = ({ heightvh, widthvw, title }: ActionButtonType) => {
   return (
     <div
       style={{

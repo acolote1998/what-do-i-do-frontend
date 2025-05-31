@@ -4,7 +4,7 @@ export type ContainerType = {
   children?: React.ReactNode;
 };
 
-export type ActionButton = {
+export type ActionButtonType = {
   widthvw: string;
   heightvh: string;
   title: string;
