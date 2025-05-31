@@ -12,7 +12,7 @@ function RouteComponent() {
     <div className="flex justify-center items-center text-center min-h-screen">
       <h1 style={{ color: "var(--app-titles)" }} className="text-3xl"></h1>
       <Container position="relative" heightvh="20" widthvw="80">
-        <h2 style={{ color: "var(--app-titles)" }} className="text-lg">
+        <h2 style={{ color: "var(--app-titles)" }} className="text-xl">
           Do I eat pizza tonight?
         </h2>
         <div className="flex">
@@ -22,14 +22,20 @@ function RouteComponent() {
               height: "2vh",
               backgroundColor: "var(--divs-vote-1)",
             }}
-          ></div>
+            className="flex items-center align-middle justify-start overflow-hidden text-nowrap"
+          >
+            <p className="ml-2">Option 1</p>
+          </div>
           <div
             style={{
               width: "20vw",
               height: "2vh",
               backgroundColor: "var(--divs-vote-2)",
             }}
-          ></div>
+            className="flex items-center align-middle justify-start overflow-hidden text-nowrap"
+          >
+            <p className="ml-2">Option 2aaaaaaaa</p>
+          </div>
         </div>
         <div className="flex gap-2 absolute bottom-2 right-2">
           <View width={24}></View>
