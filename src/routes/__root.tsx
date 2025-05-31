@@ -1,10 +1,11 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import NavBar from "../../components/NavBar";
+import Header from "../../components/Header";
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      {/* Here we can add the HEADER */}
+      <Header />
       <Outlet />
       <NavBar />
     </>
