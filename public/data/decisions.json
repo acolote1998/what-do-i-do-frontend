@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Pizza Or IceCream?",
+    "description": "I wanna eat either of these but I can't decide",
+    "option1": "Pizza",
+    "option2": "IceCream",
+    "votes_1": ["user1_id", "user2_id", "user3_id"],
+    "votes_2": ["user4_id", "user5_id"],
+    "open": true
+  },
+  {
+    "title": "Blue Or Red?",
+    "description": "Should I wear a blue t-shirt or a red t-shirt",
+    "option1": "Blue",
+    "option2": "Red",
+    "votes_1": ["user1_id", "user2_id", "user3_id"],
+    "votes_2": ["user4_id", "user5_id"],
+    "open": true
+  },
+  {
+    "title": "Horde or Alliance?",
+    "description": "Which army?",
+    "option1": "Horde",
+    "option2": "Alliance",
+    "votes_1": ["user1_id", "user2_id", "user3_id"],
+    "votes_2": ["user4_id", "user5_id"],
+    "open": true
+  }
+]
