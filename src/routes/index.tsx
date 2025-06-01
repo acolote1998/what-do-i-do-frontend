@@ -11,7 +11,7 @@ function RouteComponent() {
   const { data, error, isError, isPending } = useDecisions();
   return (
     <div className="overflow-scroll justify-between pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
-      <h1 style={{ color: "var(--app-titles)" }} className="text-3xl mt-7">
+      <h1 style={{ color: "var(--app-titles)" }} className="text-3xl mt-2">
         Help Decide!
       </h1>
       {data?.map((decision) => (
