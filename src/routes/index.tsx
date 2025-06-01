@@ -16,6 +16,7 @@ function RouteComponent() {
       </h1>
       {data?.map((decision) => (
         <PublicDecision
+          id={decision.id}
           description={decision.description}
           open={decision.open}
           option1={decision.option1}
@@ -23,7 +24,7 @@ function RouteComponent() {
           title={decision.title}
           users_votes_1={decision.users_votes_1}
           users_votes_2={decision.users_votes_2}
-          key={decision.title}
+          key={decision.id}
         />
       ))}
       <div className="m-4">
