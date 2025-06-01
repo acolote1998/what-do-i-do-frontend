@@ -1,8 +1,9 @@
 import Container from "./Container";
 import type { DecisionsType } from "../types/types";
 import ActionButton from "./ActionButton";
-
-const PublicDecision = ({ open, title, description }: DecisionsType) => {
+import { useNavigate } from "@tanstack/react-router";
+const PublicDecision = ({ open, title, description, id }: DecisionsType) => {
+  const navigate = useNavigate();
   return (
     <>
       {open && (
@@ -28,7 +29,12 @@ const PublicDecision = ({ open, title, description }: DecisionsType) => {
                   {description}
                 </p>
               </div>
-              <div className="cursor-pointer flex gap-2 absolute bottom-2">
+              <div
+                className="cursor-pointer flex gap-2 absolute bottom-2"
+                onClick={() => {
+                  navigate({ to: `/decisions/${id}` });
+                }}
+              >
                 <ActionButton widthvw="25" heightvh="4" title="See more" />
               </div>
             </Container>
