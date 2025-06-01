@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as CreateImport } from './routes/create'
 import { Route as IndexImport } from './routes/index'
 import { Route as ProfileIndexImport } from './routes/profile/index'
+import { Route as DecisionsDecisionIdImport } from './routes/decisions/$decisionId'
 
 // Create/Update Routes
 
@@ -35,6 +36,12 @@ const ProfileIndexRoute = ProfileIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DecisionsDecisionIdRoute = DecisionsDecisionIdImport.update({
+  id: '/decisions/$decisionId',
+  path: '/decisions/$decisionId',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -53,6 +60,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CreateImport
       parentRoute: typeof rootRoute
     }
+    '/decisions/$decisionId': {
+      id: '/decisions/$decisionId'
+      path: '/decisions/$decisionId'
+      fullPath: '/decisions/$decisionId'
+      preLoaderRoute: typeof DecisionsDecisionIdImport
+      parentRoute: typeof rootRoute
+    }
     '/profile/': {
       id: '/profile/'
       path: '/profile'
@@ -68,12 +82,14 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
+  '/decisions/$decisionId': typeof DecisionsDecisionIdRoute
   '/profile': typeof ProfileIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
+  '/decisions/$decisionId': typeof DecisionsDecisionIdRoute
   '/profile': typeof ProfileIndexRoute
 }
 
@@ -81,27 +97,30 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/create': typeof CreateRoute
+  '/decisions/$decisionId': typeof DecisionsDecisionIdRoute
   '/profile/': typeof ProfileIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/create' | '/profile'
+  fullPaths: '/' | '/create' | '/decisions/$decisionId' | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/create' | '/profile'
-  id: '__root__' | '/' | '/create' | '/profile/'
+  to: '/' | '/create' | '/decisions/$decisionId' | '/profile'
+  id: '__root__' | '/' | '/create' | '/decisions/$decisionId' | '/profile/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CreateRoute: typeof CreateRoute
+  DecisionsDecisionIdRoute: typeof DecisionsDecisionIdRoute
   ProfileIndexRoute: typeof ProfileIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CreateRoute: CreateRoute,
+  DecisionsDecisionIdRoute: DecisionsDecisionIdRoute,
   ProfileIndexRoute: ProfileIndexRoute,
 }
 
@@ -117,6 +136,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/create",
+        "/decisions/$decisionId",
         "/profile/"
       ]
     },
@@ -125,6 +145,9 @@ export const routeTree = rootRoute
     },
     "/create": {
       "filePath": "create.tsx"
+    },
+    "/decisions/$decisionId": {
+      "filePath": "decisions/$decisionId.tsx"
     },
     "/profile/": {
       "filePath": "profile/index.tsx"

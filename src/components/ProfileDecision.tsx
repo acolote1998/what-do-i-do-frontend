@@ -2,6 +2,7 @@ import Container from "./Container";
 import TrashCan from "./icons/TrashCan";
 import View from "./icons/View";
 import type { DecisionsType } from "../types/types";
+import { useNavigate } from "@tanstack/react-router";
 
 const ProfileDecision = ({
   open,
@@ -10,7 +11,9 @@ const ProfileDecision = ({
   title,
   users_votes_1,
   users_votes_2,
+  id,
 }: DecisionsType) => {
+  const navigate = useNavigate();
   const calculateBarWidth = (voters: number) => {
     const totalVoters = users_votes_1.length + users_votes_2.length;
     const maxWidth = 60;
@@ -52,7 +55,13 @@ const ProfileDecision = ({
               </div>
             </div>
             <div className="cursor-pointer flex gap-2 absolute bottom-2 right-2">
-              <View width={24}></View>
+              <div
+                onClick={() => {
+                  navigate({ to: `/decisions/${id}` });
+                }}
+              >
+                <View width={24}></View>
+              </div>
               <TrashCan width={24}></TrashCan>
             </div>
           </Container>
