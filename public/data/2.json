@@ -1,0 +1,10 @@
+{
+  "id": 2,
+  "title": "Horde or Alliance?",
+  "description": "Which army?",
+  "option1": "Horde",
+  "option2": "Alliance",
+  "users_votes_1": ["user1_id", "user2_id", "user3_id", "user5_id"],
+  "users_votes_2": ["user4_id", "user5_id"],
+  "open": true
+}

@@ -1,0 +1,10 @@
+{
+  "id": 0,
+  "title": "Pizza Or IceCream?",
+  "description": "I wanna eat either of these but I can't decide",
+  "option1": "Pizza",
+  "option2": "IceCream",
+  "users_votes_1": ["user1_id", "user2_id", "user3_id"],
+  "users_votes_2": ["user4_id", "user5_id"],
+  "open": true
+}
