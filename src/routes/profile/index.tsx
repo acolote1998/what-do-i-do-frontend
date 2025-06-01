@@ -9,7 +9,7 @@ export const Route = createFileRoute("/profile/")({
 function RouteComponent() {
   const { data, error, isError, isPending } = useDecisions();
   return (
-    <div className="overflow-scroll gap-2 justify-between pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+    <div className="overflow-scroll gap-2 pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
       <h1 style={{ color: "var(--app-titles)" }} className="text-4xl m-5">
         My Decisions
       </h1>
