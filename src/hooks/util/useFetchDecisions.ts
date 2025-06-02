@@ -35,3 +35,19 @@ export function useFetchThreeRandomDecisions() {
 
   return { fetchThreeRandomDecisions };
 }
+
+export function useFetchDecisionByIdAndOwner(id: number) {
+  const { getToken } = useAuth();
+
+  const fetchDecisionByIdAndOwner = async (): Promise<DecisionsType[]> => {
+    const response = await axios.get(`/data/${id}.json`, {
+      headers: { Authorization: `Bearer ${await getToken()}` },
+    });
+    if (response.status === HttpStatusCode.Ok) {
+      return response.data;
+    }
+    return [];
+  };
+
+  return { fetchDecisionByIdAndOwner };
+}
