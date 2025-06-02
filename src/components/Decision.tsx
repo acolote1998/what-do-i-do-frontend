@@ -1,0 +1,95 @@
+import ActionButton from "../components/ActionButton";
+import type { DecisionsType } from "../types/types";
+const Decision = ({
+  description,
+  open,
+  option1,
+  option2,
+  title,
+  users_votes_1,
+  users_votes_2,
+}: DecisionsType) => {
+  const calculateBarWidth = (voters: number) => {
+    const totalVoters = users_votes_1.length + users_votes_2.length;
+    const maxWidth = 60;
+    return (voters * maxWidth) / totalVoters;
+  };
+  return (
+    <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+      <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
+        {title}
+      </h2>
+      <textarea
+        style={{
+          backgroundColor: "var(--divs-bg)",
+          border: "1px solid var(--divs-border)",
+          color: "var(--divs-text)",
+        }}
+        readOnly
+        className="rounded text-center w-[75vw] h-[28vh]"
+        placeholder="Loading..."
+        value={description}
+      ></textarea>
+      <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
+        Choice A
+      </h2>
+      <input
+        style={{
+          backgroundColor: "var(--divs-bg)",
+          border: "1px solid var(--divs-border)",
+          color: "var(--divs-text)",
+        }}
+        type="text"
+        className="rounded text-center w-[75vw]"
+        placeholder="Loading..."
+        readOnly
+        value={option1}
+      ></input>
+      <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
+        Choice B
+      </h2>
+      <input
+        style={{
+          backgroundColor: "var(--divs-bg)",
+          border: "1px solid var(--divs-border)",
+          color: "var(--divs-text)",
+        }}
+        type="text"
+        className="rounded text-center w-[75vw]"
+        placeholder="Loading..."
+        value={option2}
+        readOnly
+      ></input>
+      {open && (
+        <div className="m-5 flex flex-row gap-2">
+          <ActionButton heightvh="7" title="Vote A" widthvw="30"></ActionButton>
+          <ActionButton heightvh="7" title="Vote B" widthvw="30"></ActionButton>
+        </div>
+      )}
+      <div className="flex">
+        <div
+          style={{
+            width: `${calculateBarWidth(users_votes_1.length)}vw`,
+            height: "2vh",
+            backgroundColor: "var(--divs-vote-1)",
+          }}
+          className="flex items-center align-middle justify-start overflow-hidden text-nowrap"
+        >
+          <p className="ml-2">{option1}</p>
+        </div>
+        <div
+          style={{
+            width: `${calculateBarWidth(users_votes_2.length)}vw`,
+            height: "2vh",
+            backgroundColor: "var(--divs-vote-2)",
+          }}
+          className="flex items-center align-middle justify-start overflow-hidden text-nowrap"
+        >
+          <p className="ml-2">{option2}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Decision;
