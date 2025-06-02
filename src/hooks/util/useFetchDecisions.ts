@@ -39,14 +39,14 @@ export function useFetchThreeRandomDecisions() {
 export function useFetchDecisionByIdAndOwner(id: number) {
   const { getToken } = useAuth();
 
-  const fetchDecisionByIdAndOwner = async (): Promise<DecisionsType[]> => {
+  const fetchDecisionByIdAndOwner = async (): Promise<DecisionsType> => {
     const response = await axios.get(`/data/${id}.json`, {
       headers: { Authorization: `Bearer ${await getToken()}` },
     });
     if (response.status === HttpStatusCode.Ok) {
       return response.data;
     }
-    return [];
+    throw new Error("Could not obtain the decision");
   };
 
   return { fetchDecisionByIdAndOwner };

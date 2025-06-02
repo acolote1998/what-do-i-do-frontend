@@ -7,7 +7,7 @@ const useDecisionsByIdAndOwner = (id: number) => {
   const { fetchDecisionByIdAndOwner } = useFetchDecisionByIdAndOwner(id);
   const { isSignedIn } = useAuth();
 
-  const { isPending, isError, data, error } = useQuery<DecisionsType[]>({
+  const { isPending, isError, data, error } = useQuery<DecisionsType>({
     queryKey: ["days", id],
     queryFn: fetchDecisionByIdAndOwner,
     //enabled: isSignedIn === true,

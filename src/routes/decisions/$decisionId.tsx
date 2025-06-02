@@ -13,16 +13,18 @@ function RouteComponent() {
   );
   return (
     <div className="overflow-scroll gap-2 pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
-      <Decision
-        description="Que hago?"
-        id={0}
-        open={true}
-        option1="Helado"
-        option2="Merca"
-        title="Helado o merca"
-        users_votes_1={["", "", ""]}
-        users_votes_2={["", ""]}
-      ></Decision>
+      {data && (
+        <Decision
+          description={data.description}
+          id={data.id}
+          open={data.open}
+          option1={data.option1}
+          option2={data.option2}
+          title={data.title}
+          users_votes_1={data.users_votes_1}
+          users_votes_2={data.users_votes_2}
+        ></Decision>
+      )}
     </div>
   );
 }
