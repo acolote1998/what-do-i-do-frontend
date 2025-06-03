@@ -10,7 +10,7 @@ const useDecisions = () => {
   const { isPending, isError, data, error } = useQuery<DecisionsType[]>({
     queryKey: ["days"],
     queryFn: fetchDecisions,
-    //enabled: isSignedIn === true,
+    enabled: isSignedIn === true,
     retry: 4,
   });
   return { isPending, isError, data, error };
