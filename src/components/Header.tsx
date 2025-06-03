@@ -1,3 +1,9 @@
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+} from "@clerk/clerk-react";
 const Header = () => {
   return (
     <div
@@ -10,6 +16,14 @@ const Header = () => {
       <h1 style={{ color: "var(--divs-text" }} className="text-4xl">
         What Do I Do?
       </h1>
+      <div className="absolute right-0 mr-10">
+        <SignedOut>
+          <SignInButton></SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <SignOutButton></SignOutButton>
+        </SignedIn>
+      </div>
     </div>
   );
 };
