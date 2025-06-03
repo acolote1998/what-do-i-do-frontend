@@ -24,7 +24,7 @@ export function useFetchThreeRandomDecisions() {
   const { getToken } = useAuth();
 
   const fetchThreeRandomDecisions = async (): Promise<DecisionsType[]> => {
-    const response = await axios.get(url, {
+    const response = await axios.get(`${url}/random`, {
       headers: { Authorization: `Bearer ${await getToken()}` },
     });
     if (response.status === HttpStatusCode.Ok) {

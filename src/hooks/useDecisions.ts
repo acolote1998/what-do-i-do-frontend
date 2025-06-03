@@ -8,7 +8,7 @@ const useDecisions = () => {
   const { isSignedIn } = useAuth();
 
   const { isPending, isError, data, error } = useQuery<DecisionsType[]>({
-    queryKey: ["days"],
+    queryKey: ["profileDecisions"],
     queryFn: fetchDecisions,
     enabled: isSignedIn === true,
     retry: 4,

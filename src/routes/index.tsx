@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import useDecisions from "../hooks/useDecisions";
 import PublicDecision from "../components/PublicDecision";
 import ActionButton from "../components/ActionButton";
+import useThreeRandomDecisions from "../hooks/useThreeRandomDecisions";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { data, error, isError, isPending } = useDecisions();
+  const queryClient = useQueryClient();
+  const { data, error, isError, isPending } = useThreeRandomDecisions();
   return (
     <div className="overflow-scroll justify-between pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
       <h1 style={{ color: "var(--app-titles)" }} className="text-3xl mt-2">
@@ -27,7 +29,12 @@ function RouteComponent() {
           key={decision.id}
         />
       ))}
-      <div className="m-4">
+      <div
+        className="m-4"
+        onClick={() => {
+          queryClient.invalidateQueries({ queryKey: ["publicDecisions"] });
+        }}
+      >
         <ActionButton widthvw="40" heightvh="7" title="Find others" />
       </div>
     </div>
