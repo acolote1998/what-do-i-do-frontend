@@ -17,8 +17,10 @@ function RouteComponent() {
   return (
     <>
       <SignedOut>
-        <div className="overflow-scroll gap-2 pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
-          <SignInButton />
+        <div className="pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center justify-center min-h-screen">
+          <h1 style={{ color: "var(--app-titles)" }} className="text-2xl m-5">
+            Please Sign In to see your profile
+          </h1>
         </div>
       </SignedOut>
       <SignedIn>
