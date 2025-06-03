@@ -8,9 +8,8 @@ export const Route = createFileRoute("/decisions/$decisionId")({
 
 function RouteComponent() {
   const { decisionId } = Route.useParams();
-  const { data, error, isError, isPending } = useDecisionsByIdAndOwner(
-    Number(decisionId)
-  );
+  const { data, error, isError, isPending } =
+    useDecisionsByIdAndOwner(decisionId);
   return (
     <div className="overflow-scroll gap-2 pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
       {data && (
