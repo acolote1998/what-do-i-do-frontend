@@ -5,7 +5,6 @@ const useDeleteDecisionsById = (id: string) => {
 
   const mutation = useMutation({
     mutationFn: deleteDecisionById,
-    retry: 4,
   });
   return { mutation };
 };

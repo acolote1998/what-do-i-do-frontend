@@ -6,7 +6,6 @@ const useCreateDecision = (decision: DecisionsType) => {
 
   const mutation = useMutation({
     mutationFn: createDecision,
-    retry: 4,
   });
   return { mutation };
 };
