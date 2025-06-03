@@ -4,7 +4,7 @@ import type { DecisionsType } from "../../types/types";
 
 const url = "http://localhost:8080/decisions";
 
-export function useCreateDecisions(decision: DecisionsType) {
+export function usePostDecisions(decision: DecisionsType) {
   const { getToken } = useAuth();
 
   const createDecision = async (): Promise<DecisionsType> => {
