@@ -34,6 +34,9 @@ const Decision = ({
   });
   const { mutation } = useCreateVote(voteToSend);
   const calculateBarWidth = (voters: number) => {
+    if (users_votes_1.length === 0 && users_votes_2.length === 0) {
+      return 30;
+    }
     const totalVoters = users_votes_1.length + users_votes_2.length;
     const maxWidth = 60;
     return (voters * maxWidth) / totalVoters;
