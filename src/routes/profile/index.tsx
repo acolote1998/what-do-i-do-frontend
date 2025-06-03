@@ -1,12 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import ProfileDecision from "../../components/ProfileDecision";
 import useDecisions from "../../hooks/useDecisions";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-} from "@clerk/clerk-react";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 export const Route = createFileRoute("/profile/")({
   component: RouteComponent,
@@ -19,7 +14,7 @@ function RouteComponent() {
       <SignedOut>
         <div className="pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center justify-center min-h-screen">
           <h1 style={{ color: "var(--app-titles)" }} className="text-2xl m-5">
-            Please Sign In to see your profile
+            Please sign in to see your profile
           </h1>
         </div>
       </SignedOut>

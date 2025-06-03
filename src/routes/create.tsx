@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import ActionButton from "../components/ActionButton";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 export const Route = createFileRoute("/create")({
   component: RouteComponent,
@@ -12,80 +13,92 @@ function RouteComponent() {
   const [choice1, setChoice1] = useState<string>();
   const [choice2, setChoice2] = useState<string>();
   return (
-    <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
-      <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
-        Create a new decision
-      </h2>
-      <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
-        Title
-      </h2>
-      <input
-        style={{
-          backgroundColor: "var(--divs-bg)",
-          border: "1px solid var(--divs-border)",
-          color: "var(--divs-text)",
-        }}
-        type="text"
-        className="rounded text-center w-[75vw]"
-        placeholder="Write your title here"
-        onChange={(e) => {
-          setTitle(e.target.value);
-        }}
-      ></input>
-      <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
-        Description
-      </h2>
-      <textarea
-        style={{
-          backgroundColor: "var(--divs-bg)",
-          border: "1px solid var(--divs-border)",
-          color: "var(--divs-text)",
-        }}
-        className="rounded text-center w-[75vw] h-[28vh]"
-        placeholder="Describe your situation here"
-        onChange={(e) => {
-          setDescription(e.target.value);
-        }}
-      ></textarea>
-      <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
-        Choice A
-      </h2>
-      <input
-        style={{
-          backgroundColor: "var(--divs-bg)",
-          border: "1px solid var(--divs-border)",
-          color: "var(--divs-text)",
-        }}
-        type="text"
-        className="rounded text-center w-[75vw]"
-        placeholder="Write your title here"
-        onChange={(e) => {
-          setChoice1(e.target.value);
-        }}
-      ></input>
-      <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
-        Choice B
-      </h2>
-      <input
-        style={{
-          backgroundColor: "var(--divs-bg)",
-          border: "1px solid var(--divs-border)",
-          color: "var(--divs-text)",
-        }}
-        type="text"
-        className="rounded text-center w-[75vw]"
-        placeholder="Write your title here"
-        onChange={(e) => {
-          setChoice2(e.target.value);
-        }}
-      ></input>
-      <div className="m-5">
-        <ActionButton
-          heightvh="7"
-          title="Publish Decision"
-          widthvw="30"
-        ></ActionButton>
-      </div>
-    </div>
+    <>
+      <SignedOut>
+        <div className="pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center justify-center min-h-screen">
+          <h1 style={{ color: "var(--app-titles)" }} className="text-2xl m-5">
+            Please sign in to create a decision
+          </h1>
+        </div>
+      </SignedOut>
+      <SignedIn>
+        {" "}
+        <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+          <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
+            Create a new decision
+          </h2>
+          <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
+            Title
+          </h2>
+          <input
+            style={{
+              backgroundColor: "var(--divs-bg)",
+              border: "1px solid var(--divs-border)",
+              color: "var(--divs-text)",
+            }}
+            type="text"
+            className="rounded text-center w-[75vw]"
+            placeholder="Write your title here"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          ></input>
+          <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
+            Description
+          </h2>
+          <textarea
+            style={{
+              backgroundColor: "var(--divs-bg)",
+              border: "1px solid var(--divs-border)",
+              color: "var(--divs-text)",
+            }}
+            className="rounded text-center w-[75vw] h-[28vh]"
+            placeholder="Describe your situation here"
+            onChange={(e) => {
+              setDescription(e.target.value);
+            }}
+          ></textarea>
+          <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
+            Choice A
+          </h2>
+          <input
+            style={{
+              backgroundColor: "var(--divs-bg)",
+              border: "1px solid var(--divs-border)",
+              color: "var(--divs-text)",
+            }}
+            type="text"
+            className="rounded text-center w-[75vw]"
+            placeholder="Write your title here"
+            onChange={(e) => {
+              setChoice1(e.target.value);
+            }}
+          ></input>
+          <h2 style={{ color: "var(--app-titles)" }} className="text-xl m-5">
+            Choice B
+          </h2>
+          <input
+            style={{
+              backgroundColor: "var(--divs-bg)",
+              border: "1px solid var(--divs-border)",
+              color: "var(--divs-text)",
+            }}
+            type="text"
+            className="rounded text-center w-[75vw]"
+            placeholder="Write your title here"
+            onChange={(e) => {
+              setChoice2(e.target.value);
+            }}
+          ></input>
+          <div className="m-5">
+            <ActionButton
+              heightvh="7"
+              title="Publish Decision"
+              widthvw="30"
+            ></ActionButton>
+          </div>
+        </div>
+      </SignedIn>
+    </>
   );
 }
