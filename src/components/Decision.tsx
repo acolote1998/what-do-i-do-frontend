@@ -15,6 +15,7 @@ const Decision = ({
   const [voteToSend, setVoteToSend] = useState<DecisionVoteAction>({
     decisionId: "",
     optionToVote: "",
+    whichVote: 0,
   });
   const { mutation } = useCreateVote(voteToSend);
   const calculateBarWidth = (voters: number) => {
@@ -72,7 +73,11 @@ const Decision = ({
         <div className="m-5 flex flex-row gap-2">
           <div
             onClick={() => {
-              setVoteToSend({ decisionId: id, optionToVote: option1 });
+              setVoteToSend({
+                decisionId: id,
+                optionToVote: option1,
+                whichVote: 0,
+              });
               mutation.mutate();
             }}
           >
@@ -84,7 +89,11 @@ const Decision = ({
           </div>
           <div
             onClick={() => {
-              setVoteToSend({ decisionId: id, optionToVote: option2 });
+              setVoteToSend({
+                decisionId: id,
+                optionToVote: option2,
+                whichVote: 1,
+              });
               mutation.mutate();
             }}
           >

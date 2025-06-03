@@ -25,4 +25,5 @@ export type DecisionsType = {
 export type DecisionVoteAction = {
   decisionId: string;
   optionToVote: string;
+  whichVote: number;
 };

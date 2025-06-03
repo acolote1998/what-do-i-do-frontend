@@ -2,7 +2,7 @@ import { useAuth } from "@clerk/clerk-react";
 import axios, { HttpStatusCode } from "axios";
 import type { DecisionVoteAction } from "../../types/types";
 
-const url = "http://localhost:8080/decisions";
+const url = "http://localhost:8080/decisions/vote";
 
 export function usePostVotes(vote: DecisionVoteAction) {
   const { getToken } = useAuth();
