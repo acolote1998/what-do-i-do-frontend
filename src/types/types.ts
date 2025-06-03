@@ -12,7 +12,7 @@ export type ActionButtonType = {
 };
 
 export type DecisionsType = {
-  id?: string;
+  id: string;
   title: string;
   description: string;
   option1: string;
@@ -20,4 +20,9 @@ export type DecisionsType = {
   users_votes_1: string[];
   users_votes_2: string[];
   open: boolean;
+};
+
+export type DecisionVoteAction = {
+  decisionId: string;
+  optionToVote: string;
 };

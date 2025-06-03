@@ -1,6 +1,9 @@
+import { useState } from "react";
 import ActionButton from "../components/ActionButton";
-import type { DecisionsType } from "../types/types";
+import useCreateVote from "../hooks/useCreateVote";
+import type { DecisionVoteAction, DecisionsType } from "../types/types";
 const Decision = ({
+  id,
   description,
   open,
   option1,
@@ -9,6 +12,11 @@ const Decision = ({
   users_votes_1,
   users_votes_2,
 }: DecisionsType) => {
+  const [voteToSend, setVoteToSend] = useState<DecisionVoteAction>({
+    decisionId: "",
+    optionToVote: "",
+  });
+  const { mutation } = useCreateVote(voteToSend);
   const calculateBarWidth = (voters: number) => {
     const totalVoters = users_votes_1.length + users_votes_2.length;
     const maxWidth = 60;
@@ -62,8 +70,30 @@ const Decision = ({
       ></input>
       {open && (
         <div className="m-5 flex flex-row gap-2">
-          <ActionButton heightvh="7" title="Vote A" widthvw="30"></ActionButton>
-          <ActionButton heightvh="7" title="Vote B" widthvw="30"></ActionButton>
+          <div
+            onClick={() => {
+              setVoteToSend({ decisionId: id, optionToVote: option1 });
+              mutation.mutate();
+            }}
+          >
+            <ActionButton
+              heightvh="7"
+              title="Vote A"
+              widthvw="30"
+            ></ActionButton>
+          </div>
+          <div
+            onClick={() => {
+              setVoteToSend({ decisionId: id, optionToVote: option2 });
+              mutation.mutate();
+            }}
+          >
+            <ActionButton
+              heightvh="7"
+              title="Vote B"
+              widthvw="30"
+            ></ActionButton>
+          </div>
         </div>
       )}
       <div className="flex">
