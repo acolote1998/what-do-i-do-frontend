@@ -8,7 +8,7 @@ export const Route = createFileRoute("/profile/")({
 });
 
 function RouteComponent() {
-  const { data, error, isError, isPending } = useDecisions();
+  const { data } = useDecisions();
   return (
     <>
       <SignedOut>

@@ -109,7 +109,7 @@ const Decision = ({
             >
               <ActionButton
                 heightvh="7"
-                title="Vote A"
+                title={`${option1}`}
                 widthvw="30"
               ></ActionButton>
             </div>
@@ -131,7 +131,7 @@ const Decision = ({
             >
               <ActionButton
                 heightvh="7"
-                title="Vote B"
+                title={`${option2}`}
                 widthvw="30"
               ></ActionButton>
             </div>
