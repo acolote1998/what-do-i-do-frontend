@@ -15,7 +15,7 @@ const Decision = ({
   const [voteToSend, setVoteToSend] = useState<DecisionVoteAction>({
     decisionId: "",
     optionToVote: "",
-    whichVote: 0,
+    whichToVote: 0,
   });
   const { mutation } = useCreateVote(voteToSend);
   const calculateBarWidth = (voters: number) => {
@@ -76,7 +76,7 @@ const Decision = ({
               setVoteToSend({
                 decisionId: id,
                 optionToVote: option1,
-                whichVote: 0,
+                whichToVote: 0,
               });
               mutation.mutate();
             }}
@@ -92,7 +92,7 @@ const Decision = ({
               setVoteToSend({
                 decisionId: id,
                 optionToVote: option2,
-                whichVote: 1,
+                whichToVote: 1,
               });
               mutation.mutate();
             }}
