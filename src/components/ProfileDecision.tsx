@@ -3,6 +3,9 @@ import TrashCan from "./icons/TrashCan";
 import View from "./icons/View";
 import type { DecisionsType } from "../types/types";
 import { useNavigate } from "@tanstack/react-router";
+import useDeleteDecisionsById from "../hooks/useDeleteDecisionById";
+import { toast } from "react-toastify";
+import { useQueryClient } from "@tanstack/react-query";
 
 const ProfileDecision = ({
   open,
@@ -13,6 +16,8 @@ const ProfileDecision = ({
   users_votes_2,
   id,
 }: DecisionsType) => {
+  const queryClient = useQueryClient();
+  const { mutation } = useDeleteDecisionsById(id);
   const navigate = useNavigate();
   const calculateBarWidth = (voters: number) => {
     const totalVoters = users_votes_1.length + users_votes_2.length;
@@ -62,7 +67,20 @@ const ProfileDecision = ({
               >
                 <View width={24}></View>
               </div>
-              <TrashCan width={24}></TrashCan>
+              <div
+                onClick={() => {
+                  mutation.mutate();
+
+                  setTimeout(() => {
+                    toast.success("Deleted Successfully!");
+                    queryClient.invalidateQueries({
+                      queryKey: ["profileDecisions"],
+                    });
+                  }, 500);
+                }}
+              >
+                <TrashCan width={24}></TrashCan>
+              </div>
             </div>
           </Container>
         </>
