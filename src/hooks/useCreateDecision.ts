@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import type { DecisionsType } from "../types/types";
 import { usePostDecisions } from "./util/usePostDecisionts";
-const useDeleteDuseCreateDecision = (decision: DecisionsType) => {
+const useCreateDecision = (decision: DecisionsType) => {
   const { createDecision } = usePostDecisions(decision);
 
   const mutation = useMutation({
@@ -11,4 +11,4 @@ const useDeleteDuseCreateDecision = (decision: DecisionsType) => {
   return { mutation };
 };
 
-export default useDeleteDuseCreateDecision;
+export default useCreateDecision;

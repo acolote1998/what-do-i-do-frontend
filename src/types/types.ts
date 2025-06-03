@@ -12,7 +12,7 @@ export type ActionButtonType = {
 };
 
 export type DecisionsType = {
-  id: string;
+  id?: string;
   title: string;
   description: string;
   option1: string;

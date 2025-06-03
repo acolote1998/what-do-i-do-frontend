@@ -2,16 +2,29 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import ActionButton from "../components/ActionButton";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import useCreateDecision from "../hooks/useCreateDecision";
+import type { DecisionsType } from "../types/types";
 
 export const Route = createFileRoute("/create")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const [title, setTitle] = useState<string>();
-  const [description, setDescription] = useState<string>();
-  const [choice1, setChoice1] = useState<string>();
-  const [choice2, setChoice2] = useState<string>();
+  const [decisionToCreate, setDecisionToCreate] = useState<DecisionsType>({
+    description: "",
+    id: "",
+    option1: "",
+    option2: "",
+    title: "",
+    users_votes_1: [],
+    users_votes_2: [],
+    open: true,
+  });
+  const { mutation } = useCreateDecision(decisionToCreate);
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [choice1, setChoice1] = useState<string>("");
+  const [choice2, setChoice2] = useState<string>("");
   return (
     <>
       <SignedOut>
@@ -22,7 +35,6 @@ function RouteComponent() {
         </div>
       </SignedOut>
       <SignedIn>
-        {" "}
         <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
           <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
             Create a new decision
@@ -90,7 +102,23 @@ function RouteComponent() {
               setChoice2(e.target.value);
             }}
           ></input>
-          <div className="m-5">
+          <div
+            className="m-5"
+            onClick={() => {
+              const decision: DecisionsType = {
+                id: "",
+                description: description,
+                option1: choice1,
+                option2: choice2,
+                title: title,
+                users_votes_1: [],
+                users_votes_2: [],
+                open: true,
+              };
+              setDecisionToCreate(decision);
+              mutation.mutate();
+            }}
+          >
             <ActionButton
               heightvh="7"
               title="Publish Decision"

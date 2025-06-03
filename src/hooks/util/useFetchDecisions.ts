@@ -21,8 +21,6 @@ export function useFetchDecisions() {
 }
 
 export function useFetchThreeRandomDecisions() {
-  const { getToken } = useAuth();
-
   const fetchThreeRandomDecisions = async (): Promise<DecisionsType[]> => {
     const response = await axios.get(`${url}/random`);
     if (response.status === HttpStatusCode.Ok) {
@@ -35,8 +33,6 @@ export function useFetchThreeRandomDecisions() {
 }
 
 export function useFetchDecisionByIdAndOwner(id: string) {
-  const { getToken } = useAuth();
-
   const fetchDecisionByIdAndOwner = async (): Promise<DecisionsType> => {
     const response = await axios.get(`${url}/${id}`);
     if (response.status === HttpStatusCode.Ok) {
