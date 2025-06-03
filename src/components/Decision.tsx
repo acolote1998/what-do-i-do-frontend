@@ -2,6 +2,10 @@ import { useState } from "react";
 import ActionButton from "../components/ActionButton";
 import useCreateVote from "../hooks/useCreateVote";
 import type { DecisionVoteAction, DecisionsType } from "../types/types";
+import { useUser } from "@clerk/clerk-react";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
+
 const Decision = ({
   id,
   description,
@@ -12,6 +16,17 @@ const Decision = ({
   users_votes_1,
   users_votes_2,
 }: DecisionsType) => {
+  const queryClient = useQueryClient();
+
+  const { user } = useUser();
+
+  const hasTheUserVoted1 = users_votes_1.some(
+    (voter) => voter.toLowerCase() === user?.id.toLowerCase()
+  );
+  const hasTheUserVoted2 = users_votes_2.some(
+    (voter) => voter.toLowerCase() === user?.id.toLowerCase()
+  );
+
   const [voteToSend, setVoteToSend] = useState<DecisionVoteAction>({
     decisionId: "",
     optionToVote: "",
@@ -69,42 +84,64 @@ const Decision = ({
         value={option2}
         readOnly
       ></input>
-      {open && (
-        <div className="m-5 flex flex-row gap-2">
-          <div
-            onClick={() => {
-              setVoteToSend({
-                decisionId: id,
-                optionToVote: option1,
-                whichToVote: 0,
-              });
-              mutation.mutate();
-            }}
-          >
-            <ActionButton
-              heightvh="7"
-              title="Vote A"
-              widthvw="30"
-            ></ActionButton>
+
+      <div className="m-5 flex flex-row gap-2">
+        {open && !hasTheUserVoted1 && !hasTheUserVoted2 ? (
+          <>
+            <div
+              onClick={() => {
+                setVoteToSend({
+                  decisionId: id,
+                  optionToVote: option1,
+                  whichToVote: 0,
+                });
+                mutation.mutate();
+                setTimeout(() => {
+                  toast.success("Voted Successfully!");
+                  queryClient.invalidateQueries({
+                    queryKey: ["decisionById"],
+                  });
+                }, 500);
+              }}
+            >
+              <ActionButton
+                heightvh="7"
+                title="Vote A"
+                widthvw="30"
+              ></ActionButton>
+            </div>
+            <div
+              onClick={() => {
+                setVoteToSend({
+                  decisionId: id,
+                  optionToVote: option2,
+                  whichToVote: 1,
+                });
+                mutation.mutate();
+                setTimeout(() => {
+                  toast.success("Voted Successfully!");
+                  queryClient.invalidateQueries({
+                    queryKey: ["decisionById"],
+                  });
+                }, 500);
+              }}
+            >
+              <ActionButton
+                heightvh="7"
+                title="Vote B"
+                widthvw="30"
+              ></ActionButton>
+            </div>
+          </>
+        ) : (
+          <div>
+            <h2 style={{ color: "var(--app-titles)" }} className="text-lg m-5">
+              Thank you for voting!
+            </h2>
           </div>
-          <div
-            onClick={() => {
-              setVoteToSend({
-                decisionId: id,
-                optionToVote: option2,
-                whichToVote: 1,
-              });
-              mutation.mutate();
-            }}
-          >
-            <ActionButton
-              heightvh="7"
-              title="Vote B"
-              widthvw="30"
-            ></ActionButton>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
+
       <div className="flex">
         <div
           style={{
