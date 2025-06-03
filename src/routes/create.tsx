@@ -1,15 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import ActionButton from "../components/ActionButton";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import useCreateDecision from "../hooks/useCreateDecision";
 import type { DecisionsType } from "../types/types";
+import { toast } from "react-toastify";
 
 export const Route = createFileRoute("/create")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const navigate = useNavigate();
   const [decisionToCreate, setDecisionToCreate] = useState<DecisionsType>({
     description: "",
     id: "",
@@ -117,6 +119,10 @@ function RouteComponent() {
               };
               setDecisionToCreate(decision);
               mutation.mutate();
+              setTimeout(() => {
+                navigate({ to: "/profile" });
+                toast.success("Decision Created!");
+              }, 500);
             }}
           >
             <ActionButton
