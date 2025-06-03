@@ -38,9 +38,7 @@ export function useFetchDecisionByIdAndOwner(id: string) {
   const { getToken } = useAuth();
 
   const fetchDecisionByIdAndOwner = async (): Promise<DecisionsType> => {
-    const response = await axios.get(`${url}/${id}`, {
-      headers: { Authorization: `Bearer ${await getToken()}` },
-    });
+    const response = await axios.get(`${url}/${id}`);
     if (response.status === HttpStatusCode.Ok) {
       return response.data;
     }

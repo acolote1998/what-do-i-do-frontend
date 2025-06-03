@@ -16,7 +16,7 @@ const Header = () => {
       <h1 style={{ color: "var(--divs-text" }} className="text-4xl">
         What Do I Do?
       </h1>
-      <div className="absolute right-0 mr-10">
+      <div className="absolute right-0 mr-4">
         <SignedOut>
           <SignInButton></SignInButton>
         </SignedOut>
