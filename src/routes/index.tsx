@@ -37,7 +37,7 @@ function RouteComponent() {
           queryClient.invalidateQueries({ queryKey: ["publicDecisions"] });
         }}
       >
-        <ActionButton widthvw="40" heightvh="7" title="Find others" />
+        <ActionButton widthvw="40" heightvh="7" title="Find more" />
       </div>
     </div>
   );
