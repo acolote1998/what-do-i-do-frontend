@@ -85,7 +85,6 @@ function RouteComponent() {
           </h2>
           <textarea
             style={{
-              pointerEvents: "none",
               resize: "none",
               backgroundColor: "var(--divs-bg)",
               border: "1px solid var(--divs-border)",

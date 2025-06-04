@@ -67,6 +67,7 @@ const Decision = ({
         Choice A
       </h2>
       <input
+        disabled
         style={{
           backgroundColor: "var(--divs-bg)",
           border: "1px solid var(--divs-border)",
@@ -82,6 +83,7 @@ const Decision = ({
         Choice B
       </h2>
       <input
+        disabled
         style={{
           backgroundColor: "var(--divs-bg)",
           border: "1px solid var(--divs-border)",
