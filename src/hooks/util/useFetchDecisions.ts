@@ -21,7 +21,7 @@ export function useFetchDecisions() {
 
 export function useFetchThreeRandomDecisions() {
   const fetchThreeRandomDecisions = async (): Promise<DecisionsType[]> => {
-    const response = await axios.get(`${url}/random`);
+    const response = await axios.get(`${rootUrl}/random`);
     if (response.status === HttpStatusCode.Ok) {
       return response.data;
     }
@@ -33,7 +33,7 @@ export function useFetchThreeRandomDecisions() {
 
 export function useFetchDecisionByIdAndOwner(id: string) {
   const fetchDecisionByIdAndOwner = async (): Promise<DecisionsType> => {
-    const response = await axios.get(`${url}/${id}`);
+    const response = await axios.get(`${rootUrl}/${id}`);
     if (response.status === HttpStatusCode.Ok) {
       return response.data;
     }
