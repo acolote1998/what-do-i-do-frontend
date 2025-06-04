@@ -122,7 +122,7 @@ function RouteComponent() {
               setTimeout(() => {
                 navigate({ to: "/profile" });
                 toast.success("Decision Created!");
-              }, 500);
+              }, 1000);
             }}
           >
             <ActionButton
