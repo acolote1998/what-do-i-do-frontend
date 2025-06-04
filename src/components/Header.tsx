@@ -4,9 +4,14 @@ import {
   SignInButton,
   SignOutButton,
 } from "@clerk/clerk-react";
+import { useNavigate } from "@tanstack/react-router";
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div
+      onClick={() => {
+        navigate({ to: "/" });
+      }}
       style={{
         borderBottom: "1px solid var(--divs-border)",
         backgroundColor: "var(--divs-bg)",
