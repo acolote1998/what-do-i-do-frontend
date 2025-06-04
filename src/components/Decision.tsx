@@ -92,7 +92,10 @@ const Decision = ({
         readOnly
       ></input>
 
-      <div className="m-5 flex flex-row gap-2">
+      <div
+        className="m-5 flex flex-row gap-2"
+        style={{ opacity: `${loading ? `0.25` : `1`}` }}
+      >
         {open && !hasTheUserVoted1 && !hasTheUserVoted2 ? (
           <>
             <div

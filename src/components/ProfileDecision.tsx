@@ -6,6 +6,8 @@ import { useNavigate } from "@tanstack/react-router";
 import useDeleteDecisionsById from "../hooks/useDeleteDecisionById";
 import { toast } from "react-toastify";
 import { useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
+import Loader from "./icons/Loader";
 
 const ProfileDecision = ({
   open,
@@ -16,6 +18,7 @@ const ProfileDecision = ({
   users_votes_2,
   id,
 }: DecisionsType) => {
+  const [loading, setLoading] = useState<boolean>(false);
   const queryClient = useQueryClient();
   const { mutation } = useDeleteDecisionsById(id);
   const navigate = useNavigate();
@@ -30,6 +33,7 @@ const ProfileDecision = ({
 
   return (
     <>
+      {loading && <Loader></Loader>}
       {open && (
         <>
           <h1 style={{ color: "var(--app-titles)" }} className="text-3xl"></h1>
@@ -73,16 +77,22 @@ const ProfileDecision = ({
               <div
                 onClick={() => {
                   mutation.mutate();
-
+                  setLoading(true);
                   setTimeout(() => {
+                    setLoading(false);
                     toast.success("Deleted Successfully!");
                     queryClient.invalidateQueries({
                       queryKey: ["profileDecisions"],
                     });
-                  }, 1000);
+                  }, 2000);
                 }}
               >
-                <TrashCan width={24}></TrashCan>
+                <div>
+                  <TrashCan
+                    style={{ opacity: `${loading ? `0.25` : `1`}` }}
+                    width={24}
+                  ></TrashCan>
+                </div>
               </div>
             </div>
           </Container>
