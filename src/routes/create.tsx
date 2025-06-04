@@ -29,6 +29,26 @@ function RouteComponent() {
   const [choice1, setChoice1] = useState<string>("");
   const [choice2, setChoice2] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const areInputsValid = () => {
+    if (title.trim() === "") {
+      toast.warning("Please write a valid title");
+      return false;
+    }
+    if (description.trim() === "") {
+      toast.warning("Please write a valid description");
+      return false;
+    }
+    if (choice1.trim() === "") {
+      toast.warning("Please write a valid first choice");
+      return false;
+    }
+    if (choice2.trim() === "") {
+      toast.warning("Please write a valid second choice");
+      return false;
+    }
+
+    return true;
+  };
   return (
     <>
       <SignedOut>
@@ -111,24 +131,26 @@ function RouteComponent() {
             style={{ opacity: `${loading ? `0.25` : `1`}` }}
             className="m-5"
             onClick={() => {
-              const decision: DecisionsType = {
-                id: "",
-                description: description,
-                option1: choice1,
-                option2: choice2,
-                title: title,
-                users_votes_1: [],
-                users_votes_2: [],
-                open: true,
-              };
-              setDecisionToCreate(decision);
-              mutation.mutate();
-              setLoading(true);
-              setTimeout(() => {
-                navigate({ to: "/profile" });
-                toast.success("Decision Created!");
-                setLoading(false);
-              }, 2000);
+              if (areInputsValid()) {
+                const decision: DecisionsType = {
+                  id: "",
+                  description: description,
+                  option1: choice1,
+                  option2: choice2,
+                  title: title,
+                  users_votes_1: [],
+                  users_votes_2: [],
+                  open: true,
+                };
+                setDecisionToCreate(decision);
+                mutation.mutate();
+                setLoading(true);
+                setTimeout(() => {
+                  navigate({ to: "/profile" });
+                  toast.success("Decision Created!");
+                  setLoading(false);
+                }, 2000);
+              }
             }}
           >
             <ActionButton
