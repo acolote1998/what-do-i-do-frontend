@@ -104,7 +104,7 @@ const Decision = ({
                   queryClient.invalidateQueries({
                     queryKey: ["decisionById"],
                   });
-                }, 500);
+                }, 1000);
               }}
             >
               <ActionButton
@@ -126,7 +126,7 @@ const Decision = ({
                   queryClient.invalidateQueries({
                     queryKey: ["decisionById"],
                   });
-                }, 500);
+                }, 1000);
               }}
             >
               <ActionButton
