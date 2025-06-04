@@ -1,14 +1,13 @@
 import { useAuth } from "@clerk/clerk-react";
 import axios, { HttpStatusCode } from "axios";
 import type { DecisionsType } from "../../types/types";
-
-const url = "http://localhost:8080/decisions";
+import rootUrl from "./rootUrl";
 
 export function useFetchDecisions() {
   const { getToken } = useAuth();
 
   const fetchDecisions = async (): Promise<DecisionsType[]> => {
-    const response = await axios.get(url, {
+    const response = await axios.get(rootUrl, {
       headers: { Authorization: `Bearer ${await getToken()}` },
     });
     if (response.status === HttpStatusCode.Ok) {

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
   const queryClient = useQueryClient();
-  const { data, error, isError, isPending } = useThreeRandomDecisions();
+  const { data } = useThreeRandomDecisions();
   return (
     <div className="overflow-scroll justify-between pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
       <h1 style={{ color: "var(--app-titles)" }} className="text-3xl mt-2">

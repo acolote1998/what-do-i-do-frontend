@@ -79,7 +79,7 @@ const ProfileDecision = ({
                     queryClient.invalidateQueries({
                       queryKey: ["profileDecisions"],
                     });
-                  }, 500);
+                  }, 1000);
                 }}
               >
                 <TrashCan width={24}></TrashCan>
