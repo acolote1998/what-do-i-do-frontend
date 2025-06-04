@@ -8,7 +8,7 @@ const useThreeRandomDecisions = () => {
   const { isPending, isError, data, error } = useQuery<DecisionsType[]>({
     queryKey: ["publicDecisions"],
     queryFn: fetchThreeRandomDecisions,
-    retry: 4,
+    retry: 15,
   });
   return { isPending, isError, data, error };
 };

@@ -11,7 +11,7 @@ const useDecisions = () => {
     queryKey: ["profileDecisions"],
     queryFn: fetchDecisions,
     enabled: isSignedIn === true,
-    retry: 4,
+    retry: 15,
   });
   return { isPending, isError, data, error };
 };

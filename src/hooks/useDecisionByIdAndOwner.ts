@@ -11,7 +11,7 @@ const useDecisionsByIdAndOwner = (id: string) => {
     queryKey: ["decisionById", id],
     queryFn: fetchDecisionByIdAndOwner,
     enabled: isSignedIn === true,
-    retry: 4,
+    retry: 15,
   });
   return { isPending, isError, data, error };
 };

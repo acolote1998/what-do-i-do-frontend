@@ -1,2 +1,2 @@
-const rootUrl = "http://localhost:8080/decisions/";
+const rootUrl = import.meta.env.VITE_BACKEND_API_URL;
 export default rootUrl;
