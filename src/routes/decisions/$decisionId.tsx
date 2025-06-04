@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import useDecisionsByIdAndOwner from "../../hooks/useDecisionByIdAndOwner";
 import Decision from "../../components/Decision";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import Loader from "../../components/icons/Loader";
 
 export const Route = createFileRoute("/decisions/$decisionId")({
   component: RouteComponent,
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/decisions/$decisionId")({
 
 function RouteComponent() {
   const { decisionId } = Route.useParams();
-  const { data } = useDecisionsByIdAndOwner(decisionId);
+  const { data, isPending } = useDecisionsByIdAndOwner(decisionId);
   return (
     <>
       <SignedOut>
@@ -21,6 +22,7 @@ function RouteComponent() {
       </SignedOut>
       <SignedIn>
         <div className="overflow-scroll gap-2 pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+          {isPending && <Loader></Loader>}
           {data && (
             <Decision
               description={data.description}
