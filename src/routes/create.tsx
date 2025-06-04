@@ -5,6 +5,7 @@ import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import useCreateDecision from "../hooks/useCreateDecision";
 import type { DecisionsType } from "../types/types";
 import { toast } from "react-toastify";
+import Loader from "../components/icons/Loader";
 
 export const Route = createFileRoute("/create")({
   component: RouteComponent,
@@ -27,6 +28,7 @@ function RouteComponent() {
   const [description, setDescription] = useState<string>("");
   const [choice1, setChoice1] = useState<string>("");
   const [choice2, setChoice2] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   return (
     <>
       <SignedOut>
@@ -38,6 +40,7 @@ function RouteComponent() {
       </SignedOut>
       <SignedIn>
         <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+          {loading && <Loader></Loader>}
           <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
             Create a new decision
           </h2>
@@ -105,6 +108,7 @@ function RouteComponent() {
             }}
           ></input>
           <div
+            style={{ opacity: `${loading ? `0.25` : `1`}` }}
             className="m-5"
             onClick={() => {
               const decision: DecisionsType = {
@@ -119,10 +123,12 @@ function RouteComponent() {
               };
               setDecisionToCreate(decision);
               mutation.mutate();
+              setLoading(true);
               setTimeout(() => {
                 navigate({ to: "/profile" });
                 toast.success("Decision Created!");
-              }, 1000);
+                setLoading(false);
+              }, 2000);
             }}
           >
             <ActionButton

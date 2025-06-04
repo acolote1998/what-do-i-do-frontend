@@ -2,13 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import ProfileDecision from "../../components/ProfileDecision";
 import useDecisions from "../../hooks/useDecisions";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import Loader from "../../components/icons/Loader";
 
 export const Route = createFileRoute("/profile/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { data } = useDecisions();
+  const { data, isPending } = useDecisions();
   return (
     <>
       <SignedOut>
@@ -19,6 +20,7 @@ function RouteComponent() {
         </div>
       </SignedOut>
       <SignedIn>
+        {isPending && <Loader></Loader>}
         <div className="overflow-scroll gap-2 pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
           <h1 style={{ color: "var(--app-titles)" }} className="text-4xl m-5">
             My Decisions

@@ -5,6 +5,7 @@ import type { DecisionVoteAction, DecisionsType } from "../types/types";
 import { useUser } from "@clerk/clerk-react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
+import Loader from "./icons/Loader";
 
 const Decision = ({
   id,
@@ -16,6 +17,8 @@ const Decision = ({
   users_votes_1,
   users_votes_2,
 }: DecisionsType) => {
+  const [loading, setLoading] = useState<boolean>(false);
+
   const queryClient = useQueryClient();
 
   const { user } = useUser();
@@ -43,6 +46,7 @@ const Decision = ({
   };
   return (
     <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+      {loading && <Loader></Loader>}
       <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
         {title}
       </h2>
@@ -99,12 +103,14 @@ const Decision = ({
                   whichToVote: 0,
                 });
                 mutation.mutate();
+                setLoading(true);
                 setTimeout(() => {
                   toast.success("Voted Successfully!");
+                  setLoading(false);
                   queryClient.invalidateQueries({
                     queryKey: ["decisionById"],
                   });
-                }, 1000);
+                }, 2000);
               }}
             >
               <ActionButton
@@ -121,12 +127,14 @@ const Decision = ({
                   whichToVote: 1,
                 });
                 mutation.mutate();
+                setLoading(true);
                 setTimeout(() => {
                   toast.success("Voted Successfully!");
+                  setLoading(false);
                   queryClient.invalidateQueries({
                     queryKey: ["decisionById"],
                   });
-                }, 1000);
+                }, 2000);
               }}
             >
               <ActionButton

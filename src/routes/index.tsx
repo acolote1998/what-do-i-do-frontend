@@ -3,6 +3,7 @@ import PublicDecision from "../components/PublicDecision";
 import ActionButton from "../components/ActionButton";
 import useThreeRandomDecisions from "../hooks/useThreeRandomDecisions";
 import { useQueryClient } from "@tanstack/react-query";
+import Loader from "../components/icons/Loader";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -10,9 +11,10 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
   const queryClient = useQueryClient();
-  const { data } = useThreeRandomDecisions();
+  const { data, isPending } = useThreeRandomDecisions();
   return (
     <div className="overflow-scroll justify-between pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+      {isPending && <Loader></Loader>}
       <h1 style={{ color: "var(--app-titles)" }} className="text-3xl mt-2">
         Help Decide!
       </h1>

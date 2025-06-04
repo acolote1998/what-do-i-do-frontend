@@ -10,6 +10,7 @@ const useThreeRandomDecisions = () => {
     queryFn: fetchThreeRandomDecisions,
     retry: 15,
   });
+
   return { isPending, isError, data, error };
 };
 
