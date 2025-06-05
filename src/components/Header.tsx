@@ -23,10 +23,14 @@ const Header = () => {
       </h1>
       <div className="absolute right-0 mr-4">
         <SignedOut>
-          <SignInButton></SignInButton>
+          <SignInButton>
+            <p className="text-white break-words w-[10vw]">Sign In</p>
+          </SignInButton>
         </SignedOut>
         <SignedIn>
-          <SignOutButton></SignOutButton>
+          <SignOutButton>
+            <p className="text-white break-words w-[10vw]">Sign Out</p>
+          </SignOutButton>
         </SignedIn>
       </div>
     </div>
