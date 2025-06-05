@@ -45,7 +45,7 @@ const Decision = ({
     return (voters * maxWidth) / totalVoters;
   };
   return (
-    <div className="overflow-scroll pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
+    <div className="pt-[8.7vh] pb-[8.7vh] flex flex-col items-center text-center min-h-screen">
       {loading && <Loader></Loader>}
       <h2 style={{ color: "var(--app-titles)" }} className="text-3xl mt-3">
         {title}
