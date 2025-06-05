@@ -18,7 +18,7 @@ const NavBar = () => {
         }}
         className="cursor-pointer flex flex-col mt-1 items-center text-center opacity-100"
       >
-        <Home width="4.3vh" />
+        <Home width="2.3vh" />
         <p>Home</p>
       </div>
       <New
@@ -26,7 +26,7 @@ const NavBar = () => {
           navigate({ to: "/create" });
         }}
         className="cursor-pointer"
-        width="7.75vh"
+        width="5.75vh"
         opacity="100%"
       />
       <div
@@ -35,7 +35,7 @@ const NavBar = () => {
         }}
         className="cursor-pointer flex flex-col mt-1 items-center text-center opacity-100"
       >
-        <Profile width="5.15vh" />
+        <Profile width="3.15vh" />
         <p>Profile</p>
       </div>
     </div>
