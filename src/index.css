@@ -11,26 +11,26 @@ body,
 }
 
 :root {
-  --body-bg: #fff9f5; /* Crema muy claro, cálido y suave */
-  --navbar-bg: #f7c59f; /* Melocotón pastel, cálido y acogedor */
-  --navbar-texts: #5a3e36; /* Marrón chocolate, legible y cálido */
-  --navbar-border: #d9a77f; /* Beige oscuro para bordes */
+  --body-bg: #1a1a2e; /* Very dark midnight blue */
+  --navbar-bg: #f878b8; /* Hot magenta pink */
+  --navbar-texts: #f8f8f8; /* Almost white */
+  --navbar-border: #b3246c; /* Deep fuchsia */
 
-  --main-button: #c97c5d; /* Terracota suave, cálido y elegante */
-  --main-button-hover: #e27e5d; /* Más brillante y vibrante */
-  --main-button-text: #fff9f5; /* Crema claro para contraste suave */
-  --main-button-text-hover: #ffffff; /* Igual para texto, mantiene contraste */
-  --main-button-border: #a05a3a; /* Marrón oscuro para borde */
-  --main-button-border-hover: #d4713b; /* Más claro y brillante para hover */
+  --main-button: #ff6ec7; /* Neon pink */
+  --main-button-hover: #ff94d1; /* Lighter neon pink */
+  --main-button-text: #1a1a2e; /* Dark background for contrast */
+  --main-button-text-hover: #1a1a2e;
+  --main-button-border: #9f1f5f; /* Dark magenta */
+  --main-button-border-hover: #d9429a;
 
-  --app-titles: #5a3e36; /* Igual que navbar-texts */
+  --app-titles: #f8f8f8; /* Bright text */
 
-  --divs-bg: #fff3e6; /* Crema pastel, muy suave */
-  --divs-border: #e5c9b3; /* Durazno claro para bordes */
-  --divs-text: #7e5a47; /* Marrón suave para textos */
+  --divs-bg: #2e1a4a; /* Deep purple */
+  --divs-border: #8e43d1; /* Bright violet */
+  --divs-text: #e9d7ff; /* Pale lilac */
 
-  --divs-vote-1: #e3a87c; /* Naranja quemado, cálido y amigable */
-  --divs-vote-2: #88bca3; /* Verde grisáceo, calmado y equilibrado */
+  --divs-vote-1: #ff8aff; /* Neon pink glow */
+  --divs-vote-2: #46baff; /* Electric blue */
 }
 
 /* HTML: <div class="loader"></div> */
@@ -41,12 +41,13 @@ body,
   font-weight: bold;
   text-transform: uppercase;
   color: #0000;
-  -webkit-text-stroke: 1px #000;
+  -webkit-text-stroke: 1px #fff;
   background:
-    conic-gradient(from -135deg at 100% 50%, #000 90deg, #0000 0) text no-repeat,
-    conic-gradient(from -135deg at 1lh 50%, #0000 90deg, #000 0) text no-repeat;
+    conic-gradient(from -135deg at 100% 50%, #fff 90deg, #0000 0) text no-repeat,
+    conic-gradient(from -135deg at 1lh 50%, #0000 90deg, #fff 0) text no-repeat;
   animation: l6 2s linear infinite;
 }
+
 .loader:before {
   content: "Loading";
 }
