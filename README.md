@@ -1,54 +1,17 @@
-# React + TypeScript + Vite
+# What Do I Do – Backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+_A community-driven way to make better decisions._
 
-Currently, two official plugins are available:
+**What Do I Do** is a collaborative decision-making platform where users can ask for help when facing choices. Instead of traditional Q&A, questions are posted as **decision polls**, allowing the community to vote and share their perspectives.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend, built with **React + TypeScript**, powers the core functionality of the platform, making it possible for users to:
 
-## Expanding the ESLint configuration
+- **Post decision polls** – Ask a question framed around a choice, with multiple possible options to consider.
+- **Vote on options** – Other users can cast their votes to show what they think is the best path forward.
+- **Engage in collective decision-making** – By combining votes and feedback, the app helps users gain insight and feel more confident in making decisions.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The project is designed to encourage **interaction, community input, and constructive guidance**. Whether someone is deciding on a big life choice, a small everyday question, or simply looking for outside perspectives, _What Do I Do_ provides a simple yet meaningful way to gather advice.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+This repository contains the **frontend component** of the application, which handles the logic, data flow, and user interactions that make the platform possible.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Backend repository: https://github.com/acolote1998/what-do-i-do-backend
